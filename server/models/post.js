@@ -1,3 +1,4 @@
+//글쓰는거 관련된 모델
 import mongoose from "mongoose";
 import moment from "moment";
 

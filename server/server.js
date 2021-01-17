@@ -21,7 +21,6 @@
 //   console.log(`Server started on Port ${PORT}`);
 // }); */
 
-
 import app from './app'
 
 app.listen('7000', () => {

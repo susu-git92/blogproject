@@ -5,7 +5,7 @@ const CommentSchema = new mongoose.Schema({
   contents: {
     type: String,
     required: true,
-  },
+  },//내용을 받드시 넣어주세요 required
   date: {
     type: String,
     default: moment().format("YYYY-MM-DD hh:mm:ss"),
