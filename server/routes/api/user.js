@@ -1,79 +1,79 @@
-// import express from "express";
-// import bcrypt from "bcryptjs";
+import express from "express";
+import bcrypt from "bcryptjs";
 
-// import jwt from "jsonwebtoken";
-// import config from "../../config/index";
-// import auth from "../../middleware/auth";
-// const { JWT_SECRET } = config;
+import jwt from "jsonwebtoken";
+import config from "../../config/index";
+import auth from "../../middleware/auth";
+const { JWT_SECRET } = config;
 
-// // Model
-// import User from "../../models/user";
+// Model
+import User from "../../models/user";
 
-// const router = express.Router();
+const router = express.Router();
 
-// // @routes     GET api/user
-// // @desc       Get all user
-// // @access     public
+// @routes     GET api/user
+// @desc       Get all user
+// @access     public
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const users = await User.find();
-//     if (!users) throw Error("No users");
-//     res.status(200).json(users);
-//   } catch (e) {
-//     console.log(e);
-//     res.status(400).json({ msg: e.message });
-//   }
-// });
+router.get("/", async (req, res) => {
+   try {
+     const users = await User.find();
+     if (!users) throw Error("No users");
+     res.status(200).json(users);
+   } catch (e) {
+     console.log(e);
+     res.status(400).json({ msg: e.message });
+   }
+});
 
-// // @routes     POST api/user
+// // @routes     POST api/user 방법으로접근
 // // @desc       Register  user
 // // @access     public
 
-// router.post("/", (req, res) => {
-//   console.log(req);
-//   const { name, email, password } = req.body;
+router.post("/", (req, res) => {
+   console.log(req); //body에 정보가 담긴다
+   const { name, email, password } = req.body; //req.body.name 구조분해문법
 
-//   // Simple validation
-//   if (!name || !email || !password) {
-//     return res.status(400).json({ msg: "모든 필드를 채워주세요" });
-//   }
-//   // Check for existing user
-//   User.findOne({ email }).then((user) => {
-//     if (user)
-//       return res.status(400).json({ msg: "이미 가입된 유저가 존재합니다" });
-//     const newUser = new User({
-//       name,
-//       email,
-//       password,
-//     });
+   // Simple validation
+   if (!name || !email || !password) {
+     return res.status(400).json({ msg: "모든 필드를 채워주세요" });
+   }
+   // Check for existing user
+   User.findOne({ email }).then((user) => {
+     if (user)
+      return res.status(400).json({ msg: "이미 가입된 유저가 존재합니다" });
+      const newUser = new User({
+       name,
+       email,
+       password,
+     });
 
-//     bcrypt.genSalt(10, (err, salt) => {
-//       bcrypt.hash(newUser.password, salt, (err, hash) => {
-//         if (err) throw err;
-//         newUser.password = hash;
-//         newUser.save().then((user) => {
-//           jwt.sign(
-//             { id: user.id },
-//             JWT_SECRET,
-//             { expiresIn: 3600 },
-//             (err, token) => {
-//               if (err) throw err;
-//               res.json({
-//                 token,
-//                 user: {
-//                   id: user.id,
-//                   name: user.name,
-//                   email: user.email,
-//                 },
-//               });
-//             }
-//           );
-//         });
-//       });
-//     });
-//   });
-// });
+  bcrypt.genSalt(10, (err, salt) => {  //getSalt 소금쳐서 못알아보게하는 임의의값
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if (err) throw err;
+        newUser.password = hash;
+         newUser.save().then((user) => {
+           jwt.sign(
+            { id: user.id },
+            JWT_SECRET,
+            { expiresIn: 3600 },
+            (err, token) => {
+              if (err) throw err;
+              res.json({
+                token,
+                user: {
+                  id: user.id,
+                  name: user.name,
+                  email: user.email,
+                },
+              });
+            }
+          );
+        });
+      });
+    });
+  });
+});
 
 // // @route    POST   api/user/:username/profile
 // // @desc     POST   Edit Password
@@ -114,4 +114,4 @@
 //   }
 // });
 
-// export default router;
+export default router;

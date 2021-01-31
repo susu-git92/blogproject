@@ -1,10 +1,10 @@
-// import app from "./app";
-// import config from "./config/index";
+import app from "./app";
+import config from "./config/index";
 
 // import path from "path";
 // import greenlock from "greenlock-express";
 
-// const { PORT } = config;
+const { PORT } = config;
 
 // greenlock
 //   .init({
@@ -17,12 +17,6 @@
 //     console.log("greenlock work");
 //   });
 
-// /* app.listen(PORT, () => {
-//   console.log(`Server started on Port ${PORT}`);
-// }); */
-
-import app from './app'
-
-app.listen('7000', () => {
-    console.log("hi");
-})
+app.listen(PORT, () => {
+  console.log(`Server started on Port ${PORT}`);
+}); 
