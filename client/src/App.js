@@ -8,9 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App=()=> {
   return (
     <Provider store={store}>
-       {/* <ConnectedRouter history={history}>*/}
-       <MyRouter />
-          {/*</ConnectedRouter> */}
+      {/* <ConnectedRouter history={history}> */}
+        <MyRouter />
+      {/* </ConnectedRouter> */}
     </Provider>
   )
 }

@@ -5,5 +5,4 @@ const createRootReducer = (history) =>
     combineReducers({
         router: connectRouter(history),
     });
-
 export default createRootReducer;
