@@ -19,6 +19,7 @@
   "homepage": "https://github.com/susu-git92/blogproject#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.6.0",
     "connected-react-router": "^6.8.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
