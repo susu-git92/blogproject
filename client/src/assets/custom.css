@@ -13,4 +13,7 @@
     padding-top: 60px;
 }
 
-.header {}
+.sticky-top {
+    background: #343a40;
+    color: #fff;
+}
