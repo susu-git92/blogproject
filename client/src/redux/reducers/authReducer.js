@@ -60,6 +60,7 @@ const authReducer = (state = initialState, action) => {
                 errorMsg: null,
             }
         default: 
-            return state
+            return state //다시 상태를 리턴
     }
 }
+export default authReducer;
