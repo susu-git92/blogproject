@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import {Nav, Navbar, Container, Collapse, NavbarToggler } from 'react-bootstrap';
+import {Nav, Navbar, Container, Collapse, NavbarToggler } from 'reactstrap';
+//import {Nav, Navbar, Container, Collapse, NavbarToggler } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import LoginModal from '../components/auth/LoginModal';
@@ -21,13 +22,12 @@ const AppNavbar = () => {
                         ) 
                         : 
                         (
-                            // <h1 className="text-white">guestLink</h1>
                             <LoginModal/>
                         )
                       }
                     </Nav>
                 </Collapse>
-                <Navbar.Toggle />
+                <NavbarToggler />
             </Container>
         </Navbar>
     </Fragment>
