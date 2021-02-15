@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 });
 
 // // @routes     POST api/user 방법으로접근
-// // @desc       Register  user
+// // @desc       Register user
 // // @access     public
 
 router.post("/", (req, res) => {
