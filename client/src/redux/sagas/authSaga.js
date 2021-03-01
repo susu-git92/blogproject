@@ -15,7 +15,7 @@ return axios.post("api/auth", loginData, config);
 
 function* loginUser(action) {
     try {
-        const result= yield call(loginUserAPI, action.payload);
+        const result = yield call(loginUserAPI, action.payload);
         console.log("result" ,result);
         yield put({
             type: LOGIN_SUCCESS,
@@ -47,13 +47,13 @@ function* logout(action) {
     }
 }
 
-function* watchLogout() {
+function* watchlogout() {
     yield takeEvery(LOGOUT_REQUEST, logout);
 }
 
 export default function* authSaga() {
     yield all ([
         fork(watchLoginUser),
-        fork(watchLogout),
+        fork(watchlogout),
     ])
 }

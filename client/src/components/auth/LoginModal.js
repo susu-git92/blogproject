@@ -1,8 +1,8 @@
-import React , {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink, Modal, ModalHeader, ModalBody,Alert, Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLEAR_ERROR_REQUEST, LOGIN_REQUEST } from '../../redux/types';
-import InputGroup from 'react-bootstrap/InputGroup'
+
  
 const LoginModal = () => {
     const [modal, setModal] = useState(false);
@@ -24,7 +24,7 @@ const LoginModal = () => {
 
     const handleToggle = () => {
         dispatch({
-            type: CLEAR_ERROR_REQUEST,
+            type: CLEAR_ERROR_REQUEST
         })
         setModal(!modal)
     }
@@ -53,8 +53,7 @@ const LoginModal = () => {
                 Login
             </NavLink>
             <Modal isOpen={modal} toggle={handleToggle}>
-                <ModalHeader toggle={handleToggle}>Login</ModalHeader>
-            
+                <ModalHeader toggle={handleToggle}>Login</ModalHeader>       
                 <ModalBody>
                     {localMsg ? <Alert color="danger">{localMsg}</Alert> : null}
                     {console.log("modal??",modal)}

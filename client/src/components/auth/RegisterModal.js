@@ -14,6 +14,7 @@ const RegisterModal = () => {
     const {errorMsg} = useSelector((state) => state.auth)
 
     const dispatch = useDispatch()
+   
     const handleToggle = () => {
         dispatch ({
             type: CLEAR_ERROR_REQUEST
@@ -92,4 +93,4 @@ const RegisterModal = () => {
         )
     
 }
-export default RegisterModal
+export default RegisterModal 

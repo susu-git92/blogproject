@@ -9,7 +9,7 @@ const initialState = {
     userName: "",
     userRole: "",
     errorMsg: "",
-    successMsg: "",
+    successMsg: ""
 }
 
 const authReducer = (state = initialState, action) => {
@@ -40,9 +40,9 @@ const authReducer = (state = initialState, action) => {
                 ...action.payload,
                 token: null,
                 user: null,
+                userId: null,
                 isAuthenticated: false,
                 isLoading: false,
-                userId: null,
                 userRole: null,
                 errorMsg: action.payload.data.msg,
             }
@@ -71,7 +71,7 @@ const authReducer = (state = initialState, action) => {
                 isLoading: false,
                 userRole: null,
                 errorMsg: "",
-            }
+            };
         default: 
             return state;
     }
